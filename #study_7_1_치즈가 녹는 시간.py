@@ -14,8 +14,6 @@
 
 # 출력
 # 출력으로는 주어진 치즈가 모두 녹아 없어지는데 걸리는 정확한 시간을 정수로 첫 줄에 출력한다.
-import pprint
-
 n,m = map(int,input().split())
 list_nm = []
 #out_cheese = []
