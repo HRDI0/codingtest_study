@@ -1,2 +1,2 @@
-# codingtest_BaekJoon
-codingtest traning (from. BeakJoon)
+# codingtest
+codingtest traning
