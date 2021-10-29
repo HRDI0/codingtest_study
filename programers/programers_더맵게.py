@@ -10,25 +10,22 @@ def solution(scoville, K):
     answer = 0
     for scov in scoville:
         heapq.heappush(low_scov,scov)
-    while low_scov:
+    while len(low_scov) != 1:
         low1 = heapq.heappop(low_scov)
-        if low_scov:
-            low2 = heapq.heappop(low_scov)
-        else:
-            break
-        # if low_scov:
-        #     low2 = heapq.heappop(low_scov)
-        # else:
-        #     answer = -1
-        #     break
+        low2 = heapq.heappop(low_scov)
+
         if low1 < K or low2 < K:
             low_plus = low1 + (low2 * 2)
-        if low_plus < K:
             heapq.heappush(low_scov,low_plus)
             answer +=1
         else:
-            answer +=1
-    return answer - 1
+            heapq.heappush(low_scov,low1)
+            heapq.heappush(low_scov,low2)
+            break
+    if heapq.heappop(low_scov) < K:
+        return -1
+    else:
+        return answer
 
 scoville = list(map(int,input().split()))
 K = int(input())
